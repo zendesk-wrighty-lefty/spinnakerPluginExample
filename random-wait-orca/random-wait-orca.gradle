@@ -23,10 +23,8 @@ targetCompatibility = 1.8
 repositories {
   mavenCentral()
   jcenter()
-  maven { url "http://dl.bintray.com/spinnaker/spinnaker/" }
 
   // Used for testing against the Google product releases.
-  maven { url "https://spinnaker-releases.bintray.com/jars" }
 }
 
 spinnakerPlugin {
@@ -38,15 +36,15 @@ spinnakerPlugin {
 dependencies {
   compileOnly "org.pf4j:pf4j:${pf4jVersion}"
   compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-  compileOnly "com.netflix.spinnaker.kork:kork-plugins-api:${korkVersion}"
-  compileOnly "com.netflix.spinnaker.orca:orca-api:${orcaVersion}"
+  compileOnly "io.spinnaker.kork:kork-plugins-api:${korkVersion}"
+  compileOnly "io.spinnaker.orca:orca-api:${orcaVersion}"
   kapt "org.pf4j:pf4j:${pf4jVersion}"
 
-  testImplementation(platform("com.netflix.spinnaker.orca:orca-bom:${orcaVersion}"))
-  testImplementation "com.netflix.spinnaker.orca:orca-api"
-  testImplementation "com.netflix.spinnaker.orca:orca-api-tck"
-  testImplementation "com.netflix.spinnaker.orca:orca-queue"
-  testImplementation "com.netflix.spinnaker.kork:kork-plugins-tck"
+  testImplementation(platform("io.spinnaker.orca:orca-bom:${orcaVersion}"))
+  testImplementation "io.spinnaker.orca:orca-api"
+  testImplementation "io.spinnaker.orca:orca-api-tck"
+  testImplementation "io.spinnaker.orca:orca-queue"
+  testImplementation "io.spinnaker.kork:kork-plugins-tck"
 
   testImplementation "org.junit.jupiter:junit-jupiter-api:5.5.2"
   testImplementation "io.strikt:strikt-core:0.22.1"

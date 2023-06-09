@@ -21,10 +21,6 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     jcenter()
-    maven { url "http://dl.bintray.com/spinnaker/spinnaker/" }
-
-    // Used for testing against the Google product releases.
-    maven { url "https://spinnaker-releases.bintray.com/jars" }
 }
 
 spinnakerPlugin {
@@ -39,13 +35,13 @@ dependencies {
     // if a service doesn't contain the dependency, then you need to pull it in as implentation, as long as there are no conflicts
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     compileOnly (group: 'org.springframework', name: 'spring-context', version: '5.2.1.RELEASE')
-    compileOnly (group: 'com.netflix.spinnaker.kork', name: 'kork-plugins-spring-api', version: "${korkVersion}")
+    compileOnly (group: 'io.spinnaker.kork', name: 'kork-plugins-spring-api', version: "${korkVersion}")
     compileOnly (group: 'org.springframework', name: 'spring-web', version: '5.2.2.RELEASE')
-    compileOnly (group: 'com.netflix.spinnaker.echo', name: 'echo-core', version: "${echoVersion}")
+    compileOnly (group: 'io.spinnaker.echo', name: 'echo-core', version: "${echoVersion}")
 
 
-    testImplementation (group: 'com.netflix.spinnaker.echo', name: 'echo-core', version: "${echoVersion}")
-    testImplementation (group: 'com.netflix.spinnaker.kork', name: 'kork-plugins-spring-api', version: "${korkVersion}")
+    testImplementation (group: 'io.spinnaker.echo', name: 'echo-core', version: "${echoVersion}")
+    testImplementation (group: 'io.spinnaker.kork', name: 'kork-plugins-spring-api', version: "${korkVersion}")
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.5.2"
     testImplementation "io.strikt:strikt-core:0.22.1"
