@@ -27,7 +27,7 @@ spinnakerBundle {
   version = rootProject.version
 }
 
-version = normalizedVersion()
+//version = normalizedVersion()
 
 subprojects {
   group = "io.armory.plugin.stage.wait.random"
@@ -60,13 +60,13 @@ compileTestKotlin {
   }
 }
 
-String normalizedVersion() {
-  String fullVersion = gitVersion()
-  String normalized = fullVersion.split("-").first()
-  if (fullVersion.contains("dirty")) {
-    return "$normalized-SNAPSHOT"
-  } else {
-    return normalized
-  }
-}
+//String normalizedVersion() {
+//  String fullVersion = gitVersion()
+//  String normalized = fullVersion.split("-").first()
+//  if (fullVersion.contains("dirty")) {
+//    return "$normalized-SNAPSHOT"
+//  } else {
+//    return normalized
+//  }
+//}
 
