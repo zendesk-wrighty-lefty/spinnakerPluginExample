@@ -52,6 +52,7 @@ jobs:
           echo ::set-output name=PROJECT_KEBAB::$(basename `pwd` | sed 's/\([a-z0-9]\)\([A-Z]\)/\1_\L\2/g')
           echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
           echo ::set-output name=REPO::${GITHUB_REPOSITORY}
+          echo ::set-output name=CONTENTS::$(ls ./build/distributions)
  
       - name: create release
         id: create_release
@@ -61,7 +62,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }} 
-          body: $(ls ./build/distributions)
+          body: ${{ steps.get_project_info.outputs.CONTENTS }}
           draft: false
           prerelease: false
 
