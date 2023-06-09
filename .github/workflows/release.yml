@@ -92,7 +92,7 @@ jobs:
           metadata_repo_url: https://github.com/spinnaker-plugin-examples/examplePluginRepository
 
       - name: setup gcloud
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
         with:
           project_id: cloud-armory
           service_account_key: ${{ secrets.GCP_KEY }}
