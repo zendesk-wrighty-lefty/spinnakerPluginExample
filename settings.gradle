@@ -6,7 +6,7 @@ pluginManagement {
   }
 }
 
-rootProject.name = "pf4jStagePlugin"
+rootProject.name = "spinnakerPluginExample"
 
 include "random-wait-orca", "random-wait-deck", "random-wait-echo"
 
