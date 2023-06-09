@@ -48,10 +48,11 @@ jobs:
       - name: get project info
         id: get_project_info
         run: |
-          echo ::set-output name=PROJECT::$(basename `pwd`)
-          echo ::set-output name=PROJECT_KEBAB::$(basename `pwd` | sed 's/\([a-z0-9]\)\([A-Z]\)/\1_\L\2/g')
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-          echo ::set-output name=REPO::${GITHUB_REPOSITORY}
+          echo "{name}={value}" >> $GITHUB_STATE
+          echo "PROJECT=$(basename `pwd`)" >> $GITHUB_STATE
+          echo "PROJECT_KEBAB=$(basename `pwd` | sed 's/\([a-z0-9]\)\([A-Z]\)/\1_\L\2/g')" >> $GITHUB_STATE
+          echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_STATE
+          echo "REPO=${GITHUB_REPOSITORY}" >> $GITHUB_STATE
  
       - name: create release
         id: create_release
@@ -71,8 +72,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./build/distributions/${{ steps.get_project_info.outputs.PROJECT }}-${{ steps.get_project_info.outputs.VERSION }}.dirty-SNAPSHOT.zip
-          asset_name: ${{ steps.get_project_info.outputs.PROJECT }}-${{ steps.get_project_info.outputs.VERSION }}.dirty-SNAPSHOT.zip
+          asset_path: ./build/distributions/${{ steps.get_project_info.outputs.PROJECT }}-${{ steps.get_project_info.outputs.VERSION }}.zip
+          asset_name: ${{ steps.get_project_info.outputs.PROJECT }}-${{ steps.get_project_info.outputs.VERSION }}.zip
           asset_content_type: application/zip 
 
       - name: mutate plugin-info.json
