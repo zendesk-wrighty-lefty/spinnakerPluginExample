@@ -45,7 +45,6 @@ jobs:
       - name: build
         run: |
           ./gradlew releaseBundle
-          npx restore-scaffold-file .lintstagedrc.json
           ls -l ./build/distributions
         env:
           VERSION_TYPE: release
