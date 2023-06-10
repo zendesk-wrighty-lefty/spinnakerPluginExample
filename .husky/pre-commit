@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# CHECK THIS FILE INTO SOURCE CONTROL!
-
-exit 0
-
-#. "$(dirname "$0")/_/husky.sh"
-
-# [[ -e random-wait-deck/node_modules/.bin/lint-staged ]] && cd random-wait-deck; ./node_modules/.bin/lint-staged -p false
