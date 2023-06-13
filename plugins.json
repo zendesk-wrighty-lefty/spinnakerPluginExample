@@ -10,7 +10,8 @@
         "requires": "echo>=0.0.0,orca>=0.0.0,deck>=0.0.0",
         "sha512sum": "09a20dfcff5bd66df1b2cba9a5aeeca232c92249dd46c89e6a2c905c11193742ced183b909df7ab8917e0718e3067e3076911519c52eae552aebb57b97e7bd7f",
         "preferred": false,
-        "compatibility": []
+        "compatibility": [],
+        "url": "https://github.com/link108/spinnakerPluginExample/releases/download/v0.0.31/spinnakerPluginExample-0.0.31.zip"
       }
     ]
   }
