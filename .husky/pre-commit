@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# CHECK THIS FILE INTO SOURCE CONTROL!
-
-. "$(dirname "$0")/_/husky.sh"
-
-exit 0
