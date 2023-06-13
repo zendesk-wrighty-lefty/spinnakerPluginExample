@@ -1,0 +1,32 @@
+---
+apiVersion: spinnaker.armory.io/v1alpha2
+kind: SpinnakerService
+metadata:
+  name: spinnaker
+  namespace: spinnaker-armory
+spec:
+  spinnakerConfig:
+    profiles:
+      orca:
+        spinnaker:
+          extensibility:
+            plugins:
+              Armory.RandomWaitPlugin:
+                version: 0.0.32
+                enabled: true
+                config:
+                  defaultMaxWaitTime: 60
+            repositories:
+              examplePluginsRepo:
+                url: https://raw.githubusercontent.com/link108/spinnakerPluginExample/main/plugins.json
+      gate:
+        spinnaker:
+          extensibility:
+            deck-proxy:
+               enabled: true
+               plugins:
+                 Armory.RandomWaitPlugin:
+                   enabled: true
+            repositories:
+              examplePluginsRepo:
+                url: https://raw.githubusercontent.com/link108/spinnakerPluginExample/main/plugins.json
